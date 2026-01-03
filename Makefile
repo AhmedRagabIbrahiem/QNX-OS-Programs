@@ -15,10 +15,14 @@ TARGET = -Vgcc_ntox86_64
 CFLAGS += $(DEBUG) $(TARGET) -Wall
 LDFLAGS+= $(DEBUG) $(TARGET)
 
-all:	hello
+all:	Client_Server affinity_test
+
+Client_Server:	
+	$(CC) $(CFLAGS) -o Client_Server Client_Server.c $(LDFLAGS)
+
+affinity_test:	
+	$(CC) $(CFLAGS) -o affinity_test Affinity_test.c $(LDFLAGS)
+
 
 clean_soln:
-	rm -f *.o hello
-
-hello:	
-	$(CC) $(CFLAGS) -o hello Client_Server.c $(LDFLAGS)
+	rm -f *.o Client_Server affinity_test
